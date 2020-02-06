@@ -10,7 +10,11 @@ const jobsList = props => {
 
     return (
         <>
-            <h2>JOBS STUFFS</h2>
+            {props.error ? (
+                <div className='error'>{props.error}</div>
+            ) : (
+                    props.jobs.map(job => <div>{job.id}</div>)
+                )}
 
 
         </>

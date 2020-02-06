@@ -13,7 +13,7 @@ const GetJobsForm = props => {
     return (
         <>
             {props.isFetchingJobs ? (
-                <h2>we're getting dem jobss</h2>
+                <h2>we're getting dem jobssssss</h2>
             ) : (
                     <button onClick={handleGetJobs}>Get dem jobs</button>
                 )}

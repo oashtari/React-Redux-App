@@ -1,4 +1,4 @@
-import { GET_JOBS } from '../actions';
+import { GET_JOBS, LOAD_JOBS, SHOW_ERROR } from '../actions';
 
 const initialState = {
     jobs: [],
@@ -13,6 +13,18 @@ export const jobsReducer = (state = initialState, action) => {
                 ...state,
                 isFetchingJobs: true,
                 jobs: []
+            };
+        case LOAD_JOBS:
+            return {
+                ...state,
+                isFetchingJobs: false,
+                jobs: action.payload
+            };
+        case SHOW_ERROR:
+            return {
+                ...state,
+                isFetchingJobs: false,
+                error: action.payload
             }
         default:
             return state;
