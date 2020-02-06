@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+
+import logger from 'redux-logger';
+import thunk from 'redux-thunk';
+
+import { jobsReducer as reducer } from './reducers';
+import JobsList from './components/JobsList';
+import GetJobsForm from './components/GetJobsForm';
+
+const store = createStore(reducer, applyMiddleware(thunk, logger));
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Provider store={store}>
+        <GetJobsForm />
+        <JobsList />
+      </Provider>
     </div>
   );
 }
 
 export default App;
+
