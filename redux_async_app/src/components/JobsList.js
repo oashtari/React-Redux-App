@@ -5,6 +5,8 @@ import { getJobs } from '../actions';
 
 import GetJobsForm from './GetJobsForm';
 
+import { Card, CardTitle, CardText, CardBody, CardLink } from 'reactstrap';
+
 const jobsList = props => {
 
 
@@ -15,11 +17,15 @@ const jobsList = props => {
             ) : (
                     props.jobs.map(job => (
                         <>
-                            <h2>PT/FT: {job.type}</h2>
-                            <h3>Company: {job.company}</h3>
-                            <h3>Title: {job.title}</h3>
-                            <h3>City & State: {job.location}</h3>
-                            <h4>More info here: {job.url}</h4>
+                            <Card>
+                                <CardTitle>Title: {job.title}</CardTitle>
+                                <CardBody>
+                                    <CardText>Company: {job.company}</CardText>
+                                    <CardText>PT/FT: {job.type}</CardText>
+                                    <CardText>City & State: {job.location}</CardText>
+                                    <CardLink href={job.url}>Click here for more information</CardLink>
+                                </CardBody>
+                            </Card>
                         </>
                     ))
                 )}

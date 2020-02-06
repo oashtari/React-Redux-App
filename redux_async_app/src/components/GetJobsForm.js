@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { getJobs } from '../actions';
 
+import { Button } from 'reactstrap';
+
 const GetJobsForm = props => {
 
     const handleGetJobs = e => {
@@ -15,7 +17,7 @@ const GetJobsForm = props => {
             {props.isFetchingJobs ? (
                 <h2>we're getting dem jobssssss</h2>
             ) : (
-                    <button onClick={handleGetJobs}>Get dem jobs</button>
+                    <Button color="primary" onClick={handleGetJobs}>Get dem jobs</Button>
                 )}
 
 
